@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#302536">
+  <meta name="description" content="Le classement totalement arbitraire des meilleurs chats du monde, avec le Sphynx en première place.">
+  <title>Le classement des chats — Le Sphynx numéro 1</title>
+  <style>
+    :root { --paper:#f4f0ea; --ink:#272522; --muted:#746e66; --plum:#584356; --dark:#302536; --peach:#f0b69b; --sage:#cbd6bd; --gold:#f3ce58; --line:#d9d1c7; --serif:Georgia,"Times New Roman",serif; --sans:"Trebuchet MS","Avenir Next",sans-serif; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.5; }
+    button { font:inherit; }
+    img { display:block; width:100%; object-fit:cover; }
+    .wrap { width:min(1180px,calc(100% - 48px)); margin-inline:auto; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; min-height:76px; border-bottom:1px solid var(--line); }
+    .wordmark { display:flex; gap:11px; align-items:center; font-weight:800; letter-spacing:.4px; }
+    .mark { display:grid; width:35px; aspect-ratio:1; place-items:center; border-radius:50% 50% 50% 10%; background:var(--peach); color:var(--dark); font-size:18px; transform:rotate(-12deg); }
+    .topnav { display:flex; align-items:center; gap:20px; }
+    .topnav a { color:var(--plum); font-size:12px; font-weight:800; text-decoration:none; }
+    .topnav a:hover { text-decoration:underline; text-underline-offset:4px; }
+    .edition { color:var(--muted); font-size:12px; letter-spacing:1px; text-transform:uppercase; }
+    .intro { padding:78px 0 56px; text-align:center; }
+    .eyebrow { margin:0 0 17px; color:var(--plum); font-size:12px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:770px; margin:0 auto 19px; font-family:var(--serif); font-size:clamp(52px,8vw,94px); font-weight:400; line-height:.95; }
+    h1 em { color:var(--plum); font-weight:400; }
+    .intro-copy { max-width:520px; margin:0 auto; color:var(--muted); font-size:16px; }
+    .verdict { display:inline-block; margin-top:25px; padding:9px 15px; border:1px solid var(--plum); border-radius:99px; color:var(--plum); font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; }
+    .winner { display:grid; grid-template-columns:1.06fr .94fr; margin-bottom:76px; background:var(--dark); color:#fffaf2; }
+    .winner-copy { padding:clamp(30px,6vw,72px); }
+    .rank { display:inline-flex; width:45px; height:45px; align-items:center; justify-content:center; margin-bottom:28px; border-radius:50%; background:var(--gold); color:var(--dark); font-family:var(--serif); font-size:23px; }
+    .winner-copy h2 { margin-bottom:16px; font-family:var(--serif); font-size:clamp(45px,6vw,76px); font-weight:400; line-height:.95; }
+    .winner-copy h2 span { color:var(--peach); }
+    .winner-copy p { max-width:440px; margin-bottom:25px; color:#d7cdd5; font-size:15px; }
+    .score { display:flex; align-items:center; gap:13px; color:var(--gold); font-size:13px; font-weight:800; }
+    .stars { letter-spacing:3px; }
+    .winner-image { min-height:450px; background:#c9c0ba; object-position:center; }
+    .ranking-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:25px; }
+    .ranking-head h2 { margin-bottom:0; font-family:var(--serif); font-size:clamp(37px,5vw,56px); font-weight:400; line-height:1; }
+    .ranking-head p { max-width:300px; margin-bottom:3px; color:var(--muted); font-size:13px; }
+    .ranking-list { margin-bottom:84px; border-top:1px solid var(--line); }
+    .rank-card { display:grid; grid-template-columns:76px 145px 1fr auto; gap:22px; align-items:center; padding:18px 0; border-bottom:1px solid var(--line); }
+    .rank-number { color:var(--plum); font-family:var(--serif); font-size:38px; }
+    .rank-card img { width:145px; height:110px; background:#dbd3cb; }
+    .rank-card h3 { margin-bottom:4px; font-family:var(--serif); font-size:26px; font-weight:400; }
+    .rank-card p { max-width:520px; margin-bottom:0; color:var(--muted); font-size:13px; }
+    .badge { padding:7px 10px; border-radius:99px; background:var(--sage); color:var(--dark); font-size:10px; font-weight:800; white-space:nowrap; }
+    .rank-card:nth-child(even) .badge { background:var(--peach); }
+    .criteria { display:grid; grid-template-columns:1fr 1fr; margin-bottom:80px; background:var(--sage); }
+    .criteria-copy { padding:clamp(28px,5vw,54px); }
+    .criteria-copy h2 { max-width:380px; margin-bottom:14px; font-family:var(--serif); font-size:clamp(35px,4vw,49px); font-weight:400; line-height:1.03; }
+    .criteria-copy p { max-width:420px; margin-bottom:0; color:#596358; font-size:14px; }
+    .criteria-list { margin:0; padding:clamp(28px,5vw,54px); list-style:none; background:var(--peach); }
+    .criteria-list li { display:flex; gap:14px; align-items:baseline; padding:13px 0; border-bottom:1px solid rgba(48,37,54,.25); font-size:14px; }
+    .criteria-list li:last-child { border-bottom:0; }
+    .criteria-list strong { min-width:25px; color:var(--plum); font-family:var(--serif); font-size:22px; font-weight:400; }
+    footer { padding-block:22px; border-top:1px solid var(--line); color:var(--muted); font-size:11px; }
+    .footer-row { display:flex; justify-content:space-between; gap:20px; }
+    @media (max-width:760px) { .winner { grid-template-columns:1fr; } .winner-image { min-height:330px; order:-1; } .rank-card { grid-template-columns:55px 110px 1fr; gap:14px; } .rank-card img { width:110px; height:94px; } .badge { grid-column:3; justify-self:start; } .criteria { grid-template-columns:1fr; } .ranking-head { align-items:start; flex-direction:column; } }
+    @media (max-width:540px) { .wrap { width:min(100% - 32px,460px); } .topbar { min-height:65px; } .edition { display:none; } .topnav { gap:12px; } .intro { padding-top:55px; } h1 { font-size:clamp(51px,15vw,72px); } .winner { margin-bottom:58px; } .winner-image { min-height:275px; } .winner-copy h2 { font-size:54px; } .rank-card { grid-template-columns:35px 82px 1fr; gap:10px; } .rank-number { font-size:29px; } .rank-card img { width:82px; height:82px; } .rank-card h3 { font-size:21px; } .rank-card p { font-size:11px; } .badge { grid-column:3; font-size:9px; } .ranking-list { margin-bottom:60px; } .criteria { margin-bottom:60px; } .footer-row { flex-direction:column; gap:5px; } }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <div class="wordmark"><span class="mark" aria-hidden="true">●</span><span>LE CHAT</span></div>
+    <nav class="topnav" aria-label="Navigation principale"><a href="index.html">L'accueil</a><span class="edition">Classement · N° 02 bis</span></nav>
+  </header>
+  <main>
+    <section class="wrap intro" aria-labelledby="page-title">
+      <p class="eyebrow">Une enquête d'une rigueur discutable</p>
+      <h1 id="page-title">Le meilleur chat du <em>monde.</em></h1>
+      <p class="intro-copy">Après une étude très sérieuse menée auprès de personnes parfaitement subjectives, voici le classement définitif des chats les plus exceptionnels.</p>
+      <span class="verdict">Résultat incontestable · enfin presque</span>
+    </section>
+    <section class="wrap winner" aria-labelledby="winner-title">
+      <div class="winner-copy">
+        <span class="rank">01</span>
+        <h2 id="winner-title">Le <span>Sphynx</span></h2>
+        <p>Il est chaud, drôle, élégant, expressif et totalement convaincu d'être le centre du monde. Son absence de poils ? Un détail. Son charisme ? Absolument impossible à ignorer.</p>
+        <div class="score"><span class="stars" aria-label="cinq étoiles">★★★★★</span><span>10/10 en présence féline</span></div>
+      </div>
+      <img class="winner-image" src="https://images.unsplash.com/photo-1606214174585-fe31582dc6ee?auto=format&fit=crop&w=1100&q=85" alt="Chat Sphynx installé avec assurance" fetchpriority="high">
+    </section>
+    <div class="wrap">
+      <section aria-labelledby="ranking-title">
+        <div class="ranking-head"><h2 id="ranking-title">Le reste du palmarès</h2><p>Un classement arbitraire, affectueux et susceptible d'évoluer après chaque nouvelle rencontre.</p></div>
+        <div class="ranking-list">
+          <article class="rank-card"><span class="rank-number">02</span><img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=400&q=80" alt="Maine Coon aux longues moustaches" loading="lazy"><div><h3>Maine Coon</h3><p>Un géant doux avec des airs de star de cinéma et une voix étonnamment délicate.</p></div><span class="badge">Très majestueux</span></article>
+          <article class="rank-card"><span class="rank-number">03</span><img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=400&q=80" alt="Ragdoll au pelage clair" loading="lazy"><div><h3>Ragdoll</h3><p>Un spécialiste du câlin, de la sieste partagée et du regard qui fait fondre.</p></div><span class="badge">Câlin certifié</span></article>
+          <article class="rank-card"><span class="rank-number">04</span><img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=400&q=80" alt="Chat Abyssin attentif" loading="lazy"><div><h3>Abyssin</h3><p>Un explorateur infatigable qui transforme chaque pièce en terrain d'aventure.</p></div><span class="badge">Énergie maximale</span></article>
+          <article class="rank-card"><span class="rank-number">05</span><img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=400&q=80" alt="Chat Persan au poil long" loading="lazy"><div><h3>Persan</h3><p>Une boule de calme et de fourrure, experte en siestes parfaitement organisées.</p></div><span class="badge">Art de vivre</span></article>
+        </div>
+      </section>
+      <section class="criteria" aria-labelledby="criteria-title">
+        <div class="criteria-copy"><p class="eyebrow">La méthode scientifique</p><h2 id="criteria-title">Comment avons-nous décidé ?</h2><p>Nous avons évalué des qualités essentielles, avec une pondération entièrement inventée mais assumée avec beaucoup de confiance.</p></div>
+        <ol class="criteria-list"><li><strong>40%</strong><span>Capacité à occuper un canapé avec élégance</span></li><li><strong>25%</strong><span>Qualité du regard lorsque la gamelle est vide</span></li><li><strong>20%</strong><span>Originalité des positions de sommeil</span></li><li><strong>15%</strong><span>Talent pour faire rire les humains</span></li></ol>
+      </section>
+    </div>
+  </main>
+  <footer><div class="wrap footer-row"><span>LE CHAT · Le classement le moins officiel du monde</span><span>Le Sphynx reste numéro 1. La discussion est close.</span></div></footer>
+</body>
+</html>

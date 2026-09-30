@@ -20,6 +20,9 @@
 		.topbar { display: flex; align-items: center; justify-content: space-between; min-height: 76px; border-bottom: 1px solid var(--line); }
 		.wordmark { display: flex; gap: 11px; align-items: center; font-weight: 800; letter-spacing: .4px; }
 		.mark { display: grid; width: 35px; aspect-ratio: 1; place-items: center; border-radius: 50% 50% 50% 10%; background: var(--peach); color: var(--plum-dark); font-size: 18px; transform: rotate(-12deg); }
+		.topbar-actions { display: flex; align-items: center; gap: 22px; }
+		.page-link { color: var(--plum); font-size: 12px; font-weight: 800; text-decoration: none; }
+		.page-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 		.edition { color: var(--muted); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
 		.hero { display: grid; grid-template-columns: 1fr .94fr; gap: clamp(36px, 7vw, 92px); align-items: center; padding-block: 54px 82px; }
 		.eyebrow { margin: 0 0 18px; color: var(--plum); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
@@ -102,7 +105,7 @@
 	</style>
 </head>
 <body>
-	<header class="wrap topbar"><div class="wordmark"><span class="mark" aria-hidden="true">●</span><span>LE CHAT</span></div><span class="edition">L'élégance d'être soi · N° 02</span></header>
+	<header class="wrap topbar"><div class="wordmark"><span class="mark" aria-hidden="true">●</span><span>LE CHAT</span></div><div class="topbar-actions"><a class="page-link" href="classement.html">Le classement</a><span class="edition">L'élégance d'être soi · N° 02</span></div></header>
 	<main>
 		<div class="wrap">
 			<section class="hero" aria-labelledby="hero-title">
