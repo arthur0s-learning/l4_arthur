@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f4f0ea">
+	<meta name="description" content="Un guide doux et pratique pour mieux comprendre les chats, leurs besoins et leurs personnalités.">
+	<title>Le chat — L'élégance d'être soi</title>
+	<style>
+		:root {
+			--paper: #f4f0ea; --ink: #272522; --muted: #746e66; --plum: #584356;
+			--plum-dark: #302536; --peach: #f0b69b; --sage: #cbd6bd; --line: #d9d1c7;
+			--serif: Georgia, "Times New Roman", serif; --sans: "Trebuchet MS", "Avenir Next", sans-serif;
+		}
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.5; }
+		button, input { font: inherit; } img { display: block; width: 100%; object-fit: cover; }
+		.wrap { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+		.topbar { display: flex; align-items: center; justify-content: space-between; min-height: 76px; border-bottom: 1px solid var(--line); }
+		.wordmark { display: flex; gap: 11px; align-items: center; font-weight: 800; letter-spacing: .4px; }
+		.mark { display: grid; width: 35px; aspect-ratio: 1; place-items: center; border-radius: 50% 50% 50% 10%; background: var(--peach); color: var(--plum-dark); font-size: 18px; transform: rotate(-12deg); }
+		.edition { color: var(--muted); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+		.hero { display: grid; grid-template-columns: 1fr .94fr; gap: clamp(36px, 7vw, 92px); align-items: center; padding-block: 54px 82px; }
+		.eyebrow { margin: 0 0 18px; color: var(--plum); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+		h1, h2, h3, p { margin-top: 0; }
+		h1 { max-width: 620px; margin-bottom: 22px; font-family: var(--serif); font-size: clamp(52px, 7vw, 88px); font-weight: 400; line-height: .98; }
+		h1 em { color: var(--plum); font-weight: 400; }
+		.intro { max-width: 465px; margin-bottom: 30px; color: #625c55; font-size: 17px; }
+		.hero-note { display: flex; gap: 12px; align-items: center; color: var(--muted); font-size: 13px; }
+		.note-dot { width: 9px; aspect-ratio: 1; border-radius: 50%; background: var(--plum); }
+		.hero-art { position: relative; min-width: 0; }
+		.hero-image { height: clamp(360px, 43vw, 535px); border-radius: 5px 48% 48% 5px; background: #d8d4ca; object-position: 54% center; }
+		.image-caption { position: absolute; right: -19px; bottom: 25px; max-width: 220px; padding: 16px 18px; background: var(--sage); color: var(--plum-dark); font-family: var(--serif); font-size: 18px; line-height: 1.2; transform: rotate(2deg); }
+		.image-caption small { display: block; margin-top: 7px; font-family: var(--sans); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
+		.quick-facts { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--line); }
+		.fact { min-height: 130px; padding: 24px 30px 24px 0; }
+		.fact + .fact { padding-left: 30px; border-left: 1px solid var(--line); }
+		.fact strong { display: block; margin-bottom: 4px; color: var(--plum); font-family: var(--serif); font-size: 30px; font-weight: 400; }
+		.fact span { color: var(--muted); font-size: 13px; }
+		section.content { padding-block: 82px; }
+		.section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 31px; }
+		.section-head h2 { max-width: 580px; margin-bottom: 0; font-family: var(--serif); font-size: clamp(36px, 4vw, 53px); font-weight: 400; line-height: 1.05; }
+		.section-head p { max-width: 320px; margin-bottom: 4px; color: var(--muted); font-size: 14px; }
+		.cat-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 22px; }
+		.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+		.filter { min-height: 38px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 99px; background: transparent; cursor: pointer; font-size: 12px; transition: background .2s, color .2s, border-color .2s; }
+		.filter:hover, .filter[aria-pressed="true"] { border-color: var(--plum); background: var(--plum); color: white; }
+		.search { width: min(230px, 100%); min-height: 40px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 3px; outline-color: var(--plum); background: #fffdf9; font-size: 13px; }
+		.cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+		.cat-card { min-width: 0; border-bottom: 1px solid var(--line); animation: appear .45s both; }
+		.cat-card[hidden] { display: none; }
+		.cat-card img { height: 208px; background: #ddd8d0; }
+		.cat-info { padding: 15px 2px 17px; }
+		.cat-kicker { margin-bottom: 5px; color: var(--plum); font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+		.cat-info h3 { margin-bottom: 5px; font-family: var(--serif); font-size: 23px; font-weight: 400; }
+		.cat-info p { margin-bottom: 0; color: var(--muted); font-size: 12px; }
+		.empty-state { display: none; padding: 35px 0; color: var(--muted); }
+		.empty-state.visible { display: block; }
+		.care-band { padding-block: 72px; background: var(--plum-dark); color: #f7f2ec; }
+		.care-band .eyebrow { color: var(--peach); }
+		.care-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(38px, 8vw, 110px); align-items: start; }
+		.care-layout h2 { max-width: 420px; margin-bottom: 14px; font-family: var(--serif); font-size: clamp(40px, 5vw, 62px); font-weight: 400; line-height: 1; }
+		.care-layout .lede { max-width: 375px; color: #cec4cf; font-size: 14px; }
+		.care-list { margin: 0; padding: 0; list-style: none; }
+		.care-list li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 16px 0; border-top: 1px solid #58485b; }
+		.care-num { color: var(--peach); font-family: var(--serif); font-size: 21px; }
+		.care-list strong { display: block; margin-bottom: 3px; font-size: 15px; }
+		.care-list p { margin-bottom: 0; color: #cec4cf; font-size: 13px; }
+		.myth-section { padding-block: 78px 86px; }
+		.myth-box { display: grid; grid-template-columns: 1fr 1fr; background: #e5eadf; }
+		.myth-copy { padding: clamp(28px, 5vw, 58px); }
+		.myth-copy h2 { max-width: 390px; margin-bottom: 20px; font-family: var(--serif); font-size: clamp(34px, 4vw, 49px); font-weight: 400; line-height: 1.05; }
+		.myth-copy p { max-width: 460px; margin-bottom: 0; color: #596158; font-size: 14px; }
+		.myth-side { display: flex; min-height: 270px; flex-direction: column; justify-content: center; padding: clamp(28px, 5vw, 58px); background: var(--peach); color: #302536; }
+		.myth-side span { margin-bottom: 12px; font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+		.myth-side blockquote { margin: 0; font-family: var(--serif); font-size: clamp(26px, 3.2vw, 39px); line-height: 1.1; }
+		footer { padding-block: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+		.footer-row { display: flex; justify-content: space-between; gap: 20px; }
+		@keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+		@media (max-width: 780px) {
+			.hero { grid-template-columns: 1fr .78fr; gap: 25px; padding-block: 45px 60px; }
+			h1 { font-size: clamp(48px, 9vw, 70px); } .hero-image { height: 370px; }
+			.image-caption { right: -8px; } .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 14px; }
+			.cat-card img { height: 230px; } .section-head { align-items: start; flex-direction: column; }
+		}
+		@media (max-width: 560px) {
+			.wrap { width: min(100% - 32px, 460px); } .topbar { min-height: 65px; } .edition { font-size: 9px; }
+			.hero { display: flex; flex-direction: column; align-items: stretch; padding-block: 38px 50px; }
+			.hero-art { width: calc(100% - 12px); margin: 12px 0 0 5px; } h1 { font-size: clamp(52px, 15vw, 70px); }
+			.intro { font-size: 15px; } .hero-image { height: 350px; } .image-caption { right: -6px; bottom: 17px; max-width: 180px; font-size: 16px; }
+			.quick-facts { grid-template-columns: 1fr; } .fact, .fact + .fact { min-height: auto; padding: 17px 0; border-left: 0; }
+			.fact + .fact { border-top: 1px solid var(--line); } .fact strong { display: inline-block; min-width: 105px; font-size: 24px; }
+			section.content { padding-block: 60px; } .section-head h2 { font-size: 39px; }
+			.cat-toolbar { align-items: stretch; flex-direction: column; } .filters { gap: 6px; } .filter { padding-inline: 11px; }
+			.search { width: 100%; } .cat-card img { height: 165px; } .cat-info h3 { font-size: 20px; }
+			.care-band { padding-block: 58px; } .care-layout { grid-template-columns: 1fr; gap: 27px; } .care-layout h2 { font-size: 48px; }
+			.myth-section { padding-block: 58px; } .myth-box { grid-template-columns: 1fr; } .myth-side { min-height: 220px; }
+			.footer-row { flex-direction: column; gap: 5px; }
+		}
+		@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+	</style>
+</head>
+<body>
+	<header class="wrap topbar"><div class="wordmark"><span class="mark" aria-hidden="true">●</span><span>LE CHAT</span></div><span class="edition">L'élégance d'être soi · N° 02</span></header>
+	<main>
+		<div class="wrap">
+			<section class="hero" aria-labelledby="hero-title">
+				<div class="hero-copy"><p class="eyebrow">Mieux le comprendre</p><h1 id="hero-title">Un chat.<br>Tout un <em>univers.</em></h1><p class="intro">Indépendant sans être distant, discret mais très expressif : le chat nous invite à observer, écouter et respecter son rythme.</p><div class="hero-note"><span class="note-dot" aria-hidden="true"></span><span>Un guide pour les amoureux des moustaches et des siestes</span></div></div>
+				<div class="hero-art"><img class="hero-image" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1100&q=85" alt="Chat tigré aux yeux verts" fetchpriority="high"><div class="image-caption">Sa confiance se mérite. Ses ronrons aussi.<small>Domestiqué depuis environ 9 000 ans</small></div></div>
+			</section>
+			<section class="quick-facts" aria-label="Quelques repères sur le chat"><div class="fact"><strong>16 ans</strong><span>de vie en moyenne, parfois bien davantage</span></div><div class="fact"><strong>20–30 h</strong><span>de sommeil réparties sur une journée</span></div><div class="fact"><strong>48 km/h</strong><span>en pointe sur une courte distance</span></div></section>
+			<section class="content" aria-labelledby="profiles-title">
+				<div class="section-head"><div><p class="eyebrow">Des personnalités, pas des étiquettes</p><h2 id="profiles-title">Quel est votre style de chat ?</h2></div><p>La race donne parfois quelques indices, mais chaque chat reste un individu avec son histoire, ses habitudes et ses préférences.</p></div>
+				<div class="cat-toolbar"><div class="filters" role="group" aria-label="Filtrer les chats par profil"><button class="filter" type="button" data-filter="all" aria-pressed="true">Tous</button><button class="filter" type="button" data-filter="calme" aria-pressed="false">Calmes</button><button class="filter" type="button" data-filter="joueur" aria-pressed="false">Joueurs</button><button class="filter" type="button" data-filter="famille" aria-pressed="false">Vie de famille</button></div><label><span hidden>Rechercher une race</span><input class="search" type="search" placeholder="Rechercher une race…" aria-label="Rechercher une race"></label></div>
+				<div class="cat-grid" aria-live="polite">
+					<article class="cat-card" data-tags="calme famille" data-name="ragdoll"><img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=700&q=80" alt="Chat Ragdoll au pelage clair" loading="lazy"><div class="cat-info"><p class="cat-kicker">Doux · tranquille</p><h3>Ragdoll</h3><p>Un grand tendre qui apprécie la compagnie et les moments paisibles près de vous.</p></div></article>
+					<article class="cat-card" data-tags="joueur famille" data-name="maine coon"><img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=700&q=80" alt="Maine Coon aux longues moustaches" loading="lazy"><div class="cat-info"><p class="cat-kicker">Curieux · sociable</p><h3>Maine Coon</h3><p>Un géant au cœur tendre, bavard et souvent partant pour une partie de jeu.</p></div></article>
+					<article class="cat-card" data-tags="joueur" data-name="abyssin"><img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=700&q=80" alt="Chat Abyssin au regard attentif" loading="lazy"><div class="cat-info"><p class="cat-kicker">Vif · explorateur</p><h3>Abyssin</h3><p>Un chat athlétique qui aime grimper, observer et comprendre tout ce qui l'entoure.</p></div></article>
+					<article class="cat-card" data-tags="calme famille" data-name="persan"><img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=700&q=80" alt="Chat Persan au poil long" loading="lazy"><div class="cat-info"><p class="cat-kicker">Posé · sensible</p><h3>Persan</h3><p>Un compagnon paisible qui aime les repères stables et les attentions délicates.</p></div></article>
+				</div><p class="empty-state" role="status">Aucun chat ne correspond. Essayez une autre recherche.</p>
+			</section>
+		</div>
+		<section class="care-band" aria-labelledby="care-title"><div class="wrap care-layout"><div><p class="eyebrow">Vivre ensemble</p><h2 id="care-title">Les essentiels d'une vie de chat</h2><p class="lede">Accueillir un chat, c'est lui offrir un territoire rassurant, des soins attentifs et la liberté d'être lui-même.</p></div><ol class="care-list"><li><span class="care-num">01</span><div><strong>Un territoire à lui</strong><p>Cachettes, hauteurs et zones de repos l'aident à se sentir en sécurité chez vous.</p></div></li><li><span class="care-num">02</span><div><strong>Du jeu et de la chasse</strong><p>Quelques minutes de jeu chaque jour stimulent son corps et son esprit.</p></div></li><li><span class="care-num">03</span><div><strong>Une litière impeccable</strong><p>Un endroit propre, calme et facile d'accès respecte ses habitudes naturelles.</p></div></li><li><span class="care-num">04</span><div><strong>Des soins réguliers</strong><p>Vétérinaire, alimentation adaptée et observation quotidienne préviennent bien des soucis.</p></div></li></ol></div></section>
+		<div class="wrap"><section class="myth-section" aria-labelledby="myth-title"><div class="myth-box"><div class="myth-copy"><p class="eyebrow">À retenir</p><h2 id="myth-title">Un chat ne vous ignore pas. Il communique autrement.</h2><p>Une queue qui frétille, des oreilles qui pivotent, un clignement lent : son langage est subtil. Apprendre à le lire, c'est construire une relation plus juste et plus complice.</p></div><div class="myth-side"><span>Le bon réflexe</span><blockquote>Respecter son “non” rend ses “oui” encore plus précieux.</blockquote></div></div></section></div>
+	</main>
+	<footer><div class="wrap footer-row"><span>LE CHAT · Petit guide du compagnon félin</span><span>Un animal n'est pas un accessoire. Adoptez de façon réfléchie.</span></div></footer>
+	<script>
+		const filterButtons = document.querySelectorAll('.filter');
+		const searchInput = document.querySelector('.search');
+		const catCards = [...document.querySelectorAll('.cat-card')];
+		const emptyState = document.querySelector('.empty-state');
+		let activeFilter = 'all';
+		function updateCats() {
+			const query = searchInput.value.trim().toLocaleLowerCase('fr');
+			let visibleCount = 0;
+			for (const card of catCards) {
+				const matchesFilter = activeFilter === 'all' || card.dataset.tags.split(' ').includes(activeFilter);
+				const matchesSearch = card.dataset.name.includes(query);
+				card.hidden = !(matchesFilter && matchesSearch);
+				if (!card.hidden) visibleCount += 1;
+			}
+			emptyState.classList.toggle('visible', visibleCount === 0);
+		}
+		filterButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				activeFilter = button.dataset.filter;
+				filterButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+				updateCats();
+			});
+		});
+		searchInput.addEventListener('input', updateCats);
+	</script>
+</body>
+</html>
