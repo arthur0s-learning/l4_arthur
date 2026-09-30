@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Découvrir le lion, ses habitudes, ses différentes populations et son alimentation.">
+	<title>LION — Le roi haut en couleur</title>
+	<style>
+		:root { --sun:#ffd447; --orange:#ff7043; --pink:#f44771; --purple:#633b8f; --blue:#1b7f91; --cream:#fff7df; --ink:#292033; --line:#ead6b6; --serif:Georgia,"Times New Roman",serif; --sans:"Trebuchet MS","Avenir Next",sans-serif; }
+		* { box-sizing:border-box; } body { margin:0; color:var(--ink); background:var(--cream); font-family:var(--sans); line-height:1.5; } img { display:block; width:100%; object-fit:cover; } a { color:inherit; text-decoration:none; } button { font:inherit; }
+		.wrap { width:min(1160px,calc(100% - 44px)); margin-inline:auto; }
+		.topbar { display:flex; justify-content:space-between; align-items:center; min-height:76px; border-bottom:2px solid var(--ink); }
+		.logo { display:flex; gap:10px; align-items:center; font-weight:900; letter-spacing:1px; } .logo-mark { display:grid; width:35px; aspect-ratio:1; place-items:center; border-radius:50%; background:var(--pink); color:white; font-size:20px; }
+		.nav { display:flex; gap:8px; align-items:center; } .nav a { padding:9px 13px; border-radius:99px; font-size:12px; font-weight:800; } .nav a:hover,.nav a.active { background:var(--sun); }
+		.hero { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; padding:70px 0 85px; } .eyebrow { margin:0 0 15px; color:var(--pink); font-size:12px; font-weight:900; letter-spacing:1.5px; text-transform:uppercase; }
+		h1,h2,h3,p { margin-top:0; } h1 { max-width:590px; margin-bottom:25px; font-family:var(--serif); font-size:clamp(58px,8vw,105px); font-weight:400; line-height:.9; } h1 span { color:var(--orange); } .lead { max-width:470px; margin-bottom:28px; color:#625264; font-size:17px; }
+		.cta-row { display:flex; flex-wrap:wrap; gap:10px; } .button { display:inline-block; padding:13px 18px; border:2px solid var(--ink); border-radius:4px; background:var(--ink); color:white; font-size:12px; font-weight:900; } .button.alt { background:var(--sun); color:var(--ink); }
+		.hero-art { position:relative; } .hero-art img { height:500px; border-radius:46% 8px 46% 8px; border:10px solid var(--sun); } .sticker { position:absolute; right:-22px; bottom:35px; max-width:185px; padding:19px; border-radius:50%; background:var(--blue); color:white; font-family:var(--serif); font-size:19px; line-height:1.05; transform:rotate(8deg); }
+		.strip { display:grid; grid-template-columns:repeat(3,1fr); border-block:2px solid var(--ink); } .stat { padding:22px 25px; } .stat+.stat { border-left:2px solid var(--ink); } .stat strong { display:block; color:var(--purple); font-family:var(--serif); font-size:31px; font-weight:400; } .stat span { font-size:12px; }
+		.section { padding:80px 0; } .section-head { display:flex; justify-content:space-between; align-items:end; gap:25px; margin-bottom:30px; } h2 { max-width:600px; margin-bottom:0; font-family:var(--serif); font-size:clamp(42px,5vw,65px); font-weight:400; line-height:.98; } .section-head p { max-width:310px; margin-bottom:4px; color:#6d5e6c; font-size:13px; }
+		.color-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; } .color-card { min-height:240px; padding:25px; border-radius:4px; } .color-card:nth-child(1) { background:var(--pink); color:white; } .color-card:nth-child(2) { background:var(--sun); } .color-card:nth-child(3) { background:var(--blue); color:white; } .color-card h3 { margin-bottom:10px; font-family:var(--serif); font-size:30px; font-weight:400; } .color-card p { margin-bottom:0; font-size:13px; }
+		.banner { padding:65px 0; background:var(--purple); color:white; } .banner-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; } .banner h2 { color:var(--sun); } .banner p { max-width:400px; color:#eadcf6; font-size:15px; }
+		footer { padding:20px 0; border-top:2px solid var(--ink); font-size:11px; } .footer-row { display:flex; justify-content:space-between; gap:20px; }
+		@media (max-width:760px) { .topbar { align-items:flex-start; flex-direction:column; gap:13px; padding:17px 0; } .hero { grid-template-columns:1fr; padding-block:45px 60px; } .hero-art { width:calc(100% - 10px); margin-left:5px; } .hero-art img { height:390px; } .sticker { right:-8px; } .section-head { align-items:flex-start; flex-direction:column; } .color-grid,.banner-grid { grid-template-columns:1fr; } }
+		@media (max-width:520px) { .wrap { width:calc(100% - 32px); } .nav { width:100%; justify-content:space-between; } .nav a { padding-inline:8px; font-size:10px; } h1 { font-size:64px; } .strip { grid-template-columns:1fr; } .stat { padding:16px 0; } .stat+.stat { border-top:2px solid var(--ink); border-left:0; } }
+	</style>
+</head>
+<body>
+	<header class="wrap topbar"><a class="logo" href="index.html"><span class="logo-mark">✦</span><span>LION / SAUVAGE & SOLAIRE</span></a><nav class="nav" aria-label="Navigation principale"><a class="active" href="index.html">Découvrir</a><a href="classement.html">Classement</a><a href="alimentation.html">Alimentation</a></nav></header>
+	<main>
+		<div class="wrap">
+			<section class="hero"><div><p class="eyebrow">Animal · territoire · famille</p><h1>Le roi n'est pas <span>gris.</span></h1><p class="lead">Le lion est une force sociale, un prédateur patient et un symbole qui traverse les cultures. Voici un portrait haut en couleur de ce grand félin.</p><div class="cta-row"><a class="button" href="classement.html">Voir le classement</a><a class="button alt" href="alimentation.html">Comprendre son menu</a></div></div><div class="hero-art"><img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1000&q=85" alt="Lion mâle observant la savane" fetchpriority="high"><div class="sticker">Courage, calme et crinière.</div></div></section>
+			<section class="strip" aria-label="Chiffres clés"><div class="stat"><strong>20 h</strong><span>peuvent être consacrées au repos sur une journée</span></div><div class="stat"><strong>40 km/h</strong><span>environ en vitesse de pointe sur une courte distance</span></div><div class="stat"><strong>1 famille</strong><span>la troupe, au cœur de son organisation sociale</span></div></section>
+			<section class="section"><div class="section-head"><div><p class="eyebrow">Trois idées à garder</p><h2>Plus qu'une crinière spectaculaire.</h2></div><p>Le lion impressionne, mais son quotidien repose surtout sur la coopération, l'énergie et un territoire vivant.</p></div><div class="color-grid"><article class="color-card"><h3>Social</h3><p>Les lions vivent en groupes familiaux. La chasse, la défense et l'éducation des petits deviennent des affaires collectives.</p></article><article class="color-card"><h3>Stratège</h3><p>Un lion économise son énergie et choisit son moment. La patience est une véritable technique de survie.</p></article><article class="color-card"><h3>Sentinelle</h3><p>Ses rugissements peuvent porter sur plusieurs kilomètres et signaler une présence, un territoire ou un lien.</p></article></div></section>
+		</div>
+		<section class="banner"><div class="wrap banner-grid"><div><p class="eyebrow">Le saviez-vous ?</p><h2>Dans une troupe, chacun a une place.</h2></div><p>Les femelles apparentées forment souvent le noyau stable du groupe. Elles chassent ensemble et élèvent les lionceaux en coopération. Les mâles, eux, défendent l'accès au territoire et à la troupe.</p></div></section>
+	</main>
+	<footer><div class="wrap footer-row"><span>LION / SAUVAGE & SOLAIRE</span><span>Découvrir sans domestiquer.</span></div></footer>
+</body>
+</html>
