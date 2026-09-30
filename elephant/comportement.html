@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Éléphant — Une mémoire sociale</title>
+  <style>
+    :root { --ink:#24322d; --muted:#68756e; --paper:#f3f0e8; --forest:#27594b; --leaf:#b8ce8a; --coral:#e9785d; --line:#d5d9cc; --serif:Georgia,"Times New Roman",serif; --sans:"Trebuchet MS","Avenir Next",sans-serif; }
+    * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.5; } a { color:inherit; text-decoration:none; } img { display:block; width:100%; object-fit:cover; }
+    .wrap { width:min(1120px,calc(100% - 44px)); margin-inline:auto; } .topbar { display:flex; justify-content:space-between; align-items:center; min-height:74px; border-bottom:1px solid var(--line); } .brand { font-weight:900; letter-spacing:1px; } .nav { display:flex; gap:8px; flex-wrap:wrap; } .nav a { padding:8px 12px; border-radius:99px; font-size:12px; font-weight:800; } .nav a:hover,.nav a.active { background:var(--leaf); }
+    .hero { display:grid; grid-template-columns:1fr .9fr; gap:65px; align-items:center; padding:70px 0 80px; } .eyebrow { margin:0 0 16px; color:var(--coral); font-size:11px; font-weight:900; letter-spacing:1.6px; text-transform:uppercase; } h1,h2,h3,p { margin-top:0; } h1 { margin-bottom:20px; font-family:var(--serif); font-size:clamp(55px,8vw,91px); font-weight:400; line-height:.92; } h1 em { color:var(--forest); } .lead { max-width:490px; color:var(--muted); font-size:16px; } .hero img { height:430px; border-radius:48% 7px 48% 7px; background:#c5cbbc; }
+    .facts { display:grid; grid-template-columns:repeat(3,1fr); border-block:1px solid var(--line); } .fact { padding:22px 25px 22px 0; } .fact+.fact { padding-left:25px; border-left:1px solid var(--line); } .fact strong { display:block; color:var(--forest); font-family:var(--serif); font-size:31px; font-weight:400; } .fact span { color:var(--muted); font-size:12px; }
+    .section { padding:75px 0; } .section-head { margin-bottom:28px; } h2 { max-width:650px; font-family:var(--serif); font-size:clamp(38px,5vw,60px); font-weight:400; line-height:1; } .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; } .card { min-height:245px; padding:25px; background:var(--leaf); } .card:nth-child(2) { background:#f1c49d; } .card:nth-child(3) { background:var(--forest); color:#f5f3e9; } .card h3 { margin-bottom:10px; font-family:var(--serif); font-size:27px; font-weight:400; } .card p { margin-bottom:0; font-size:13px; }
+    .quote { padding:58px 0; background:var(--forest); color:white; } .quote blockquote { max-width:800px; margin:0 auto; font-family:var(--serif); font-size:clamp(28px,4vw,46px); line-height:1.08; text-align:center; } .quote cite { display:block; margin-top:18px; color:var(--leaf); font-family:var(--sans); font-size:11px; font-style:normal; letter-spacing:1px; text-align:center; text-transform:uppercase; }
+    footer { padding:20px 0; border-top:1px solid var(--line); color:var(--muted); font-size:11px; } .foot { display:flex; justify-content:space-between; gap:20px; }
+    @media(max-width:700px) { .topbar { align-items:flex-start; flex-direction:column; gap:13px; padding:16px 0; } .hero { grid-template-columns:1fr; gap:35px; padding-block:48px 60px; } .hero img { height:330px; } .cards { grid-template-columns:1fr; } .facts { grid-template-columns:1fr; } .fact,.fact+.fact { padding:16px 0; border-left:0; } .fact+.fact { border-top:1px solid var(--line); } }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar"><a class="brand" href="comportement.html">ÉLÉPHANT / GRANDE MÉMOIRE</a><nav class="nav" aria-label="Navigation"><a class="active" href="comportement.html">Comportement</a><a href="alimentation.html">Alimentation</a><a href="especes.html">Espèces</a></nav></header>
+  <main>
+    <div class="wrap">
+      <section class="hero"><div><p class="eyebrow">Comprendre le géant</p><h1>Une mémoire, une famille, un monde.</h1><p class="lead">L'éléphant est un animal profondément social. Il apprend en groupe, communique sur de longues distances et tisse des liens qui peuvent durer toute une vie.</p></div><img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1000&q=85" alt="Éléphant dans la nature"></section>
+      <section class="facts" aria-label="Chiffres clés"><div class="fact"><strong>60 ans</strong><span>une longévité possible à l'état sauvage</span></div><div class="fact"><strong>150 kg</strong><span>environ de nourriture consommée chaque jour</span></div><div class="fact"><strong>10 km</strong><span>la distance que peut parcourir un grondement</span></div></section>
+      <section class="section"><div class="section-head"><p class="eyebrow">Une vie en communauté</p><h2>Le troupeau est une école permanente.</h2></div><div class="cards"><article class="card"><h3>La matriarche</h3><p>La femelle la plus expérimentée guide souvent le groupe vers l'eau, les zones de nourriture et les chemins sûrs.</p></article><article class="card"><h3>Les petits</h3><p>Plusieurs femelles participent à leur protection. Un éléphanteau apprend en observant et en imitant les adultes.</p></article><article class="card"><h3>Le langage</h3><p>Toucher, posture, barrissement et infrasons composent un langage riche, parfois inaudible pour nos oreilles.</p></article></div></section>
+    </div>
+    <section class="quote"><div class="wrap"><blockquote>« Un éléphant n'oublie pas seulement un lieu : il se souvient de ceux qui y étaient avec lui. »</blockquote><cite>La force des liens sociaux</cite></div></section>
+  </main>
+  <footer><div class="wrap foot"><span>ÉLÉPHANT / GRANDE MÉMOIRE</span><span>Observer avec respect, toujours.</span></div></footer>
+</body>
+</html>
